@@ -1,18 +1,42 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <h1>Home</h1>
+    <p v-if="user">Welcome {{user.display_name || user.properties.username || 'Unknown user'}}</p>
+
+    <button
+      @click="logout()">
+      Logout
+    </button>
+
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
 
 export default {
   name: 'Home',
-  components: {
-    HelloWorld
+  data(){
+    return {
+      user: null,
+    }
+  },
+  mounted(){
+    //console.log(this.axios.defaults.headers.common)
+    this.axios.get(`https://api.authentication.maximemoreillon.com/whoami`)
+    .then( ({data}) => {
+      this.user = data
+    })
+    .catch(error => {
+      console.error(error)
+    })
+  },
+  methods: {
+    logout(){
+      this.$cookies.remove('jwt')
+      location.reload()
+    }
   }
+
 }
 </script>
