@@ -1,11 +1,9 @@
 <template>
-  <AuthenticationWall :options="options">
+  <AuthenticationWall
+    :options="options"
+    @user="handle_user($event)">
 
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-
+    <h1>Your app</h1>
     <router-view />
 
   </AuthenticationWall>
@@ -24,10 +22,11 @@ export default {
       identification_url: 'https://api.authentication.maximemoreillon.com/whoami',
     }
   }),
+  methods: {
+    handle_user(user) {
+      console.log(user)
+    }
+  }
 
 }
 </script>
-
-<style>
-
-</style>

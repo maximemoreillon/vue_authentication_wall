@@ -1,29 +1,37 @@
-# vue_authentication_wall
+# Vue authentication wall
 
-## Project setup
-```
-npm install
-```
+## Usage
+```vue
+<template>
+  <AuthenticationWall
+    :options="options"
+    @user="handle_user($event)">
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+    <h1>Your app</h1>
+    <router-view />
 
-### Compiles and minifies for production
-```
-npm run build
-```
+  </AuthenticationWall>
+</template>
 
-### Run your tests
-```
-npm run test
-```
+<script>
+import AuthenticationWall from '@moreillon/vue_authentication_wall'
+export default {
+  name: 'App',
+  components: {
+    AuthenticationWall
+  },
+  data: () => ({
+    options: {
+      login_url: 'https://api.authentication.example.com/login',
+      identification_url: 'https://api.authentication.example.com/whoami',
+    }
+  }),
+  methods: {
+    handle_user(user) {
+      console.log(user)
+    }
+  }
 
-### Lints and fixes files
+}
+</script>
 ```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
