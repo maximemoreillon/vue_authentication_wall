@@ -14,7 +14,10 @@
     <div class="">
       <input type="submit" value="Login">
 
-      <button type="button" @click="login()">
+      <button
+        type="button"
+        @click="login()"
+        :disabled="processing">
         <span v-if="!processing">Login</span>
         <Loader v-if="processing" />
 
@@ -90,6 +93,7 @@ export default {
 </script>
 
 <style scoped>
+
 input[type="submit"] {
   display: none;
 }
@@ -109,16 +113,31 @@ form div {
   justify-content: center;
   align-items: center;
 }
-form label {
+
+label {
   width: 80px;
 }
 
-form button {
+button {
   display: flex;
   align-items: center;
   justify-content: center;
   height: 2em;
   width: 80px;
+  border: 1px solid #444444;
+  background-color: transparent;
+  cursor: pointer;
+  transition: 0.25s;
+}
+
+button:disabled {
+  border-color: #bbbbbb;
+  color: #bbbbbb;
+}
+
+button:not(:disabled):hover {
+  color: #c00000;
+  border-color: #c00000;
 }
 
 </style>

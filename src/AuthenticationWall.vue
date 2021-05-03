@@ -106,6 +106,8 @@ export default {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+
+  font-family: sans-serif;
 }
 
 .fade-enter-active, .fade-leave-active {
@@ -114,4 +116,6 @@ export default {
 .fade-enter, .fade-leave-to {
   opacity: 0;
 }
+
+
 </style>
