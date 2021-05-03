@@ -64,9 +64,7 @@ export default {
       const headers = { Authorization: `Bearer ${jwt}` }
 
       axios.get(url, {headers})
-      .then( ({data}) => {
-        this.user = data
-      })
+      .then( ({data}) => { this.user = data })
       .catch( (error) => {
         console.error(error)
         VueCookies.remove('jwt')
@@ -74,6 +72,7 @@ export default {
        })
        .finally( () => {
          this.loading = false
+         this.$emit('user', this.user)
        })
 
     },
