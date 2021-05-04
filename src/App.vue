@@ -3,7 +3,7 @@
     :options="options"
     @user="handle_user($event)">
 
-    <h1>Your app</h1>
+    <h1>My app</h1>
     <router-view />
 
   </AuthenticationWall>
@@ -18,6 +18,8 @@ export default {
   },
   data: () => ({
     options: {
+      title: undefined,
+      hint: undefined,
       login_url: 'https://api.authentication.maximemoreillon.com/login',
       identification_url: 'https://api.authentication.maximemoreillon.com/whoami',
     }

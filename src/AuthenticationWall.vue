@@ -9,7 +9,7 @@
           @loggedIn="get_current_user()"/>
       </div>
 
-      <div class="wall" v-if="loading">
+      <div class="wall loader" v-if="loading">
         <Loader />
       </div>
 
@@ -107,6 +107,10 @@ export default {
   justify-content: center;
 
   font-family: sans-serif;
+}
+
+.loader {
+  font-size: 200%;
 }
 
 .fade-enter-active, .fade-leave-active {

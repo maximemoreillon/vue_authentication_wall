@@ -1,33 +1,32 @@
 <template>
-  <form class="login_form" @submit.prevent="login()">
+  <form
+    class="login_form"
+    @submit.prevent="login()">
 
-    <div class="">
-      <label>Username</label>
-      <input type="text" v-model="username">
-    </div>
+    <h2>{{options.title}}</h2>
 
-    <div class="">
-      <label>Password</label>
-      <input type="password" v-model="password">
-    </div>
+    <div>{{options.hint}}</div>
 
-    <div class="">
-      <input type="submit" value="Login">
+    <input
+      type="text"
+      v-model="username"
+      placeholder="Username">
 
-      <button
-        type="button"
-        @click="login()"
-        :disabled="processing">
-        <span v-if="!processing">Login</span>
-        <Loader v-if="processing" />
+    <input
+      type="password"
+      v-model="password"
+      placeholder="Password">
 
-      </button>
-    </div>
+    <input type="submit" value="Login">
 
+    <button
+      type="button"
+      @click="login()"
+      :disabled="processing">
+      <span v-if="!processing">Login</span>
+      <Loader v-if="processing" />
 
-
-
-
+    </button>
 
   </form>
 </template>
@@ -102,14 +101,21 @@ input {
   padding: 0.25em;
   border: none;
   border-bottom: 1px solid #444444;
+  transition: 0.25s;
 }
 
-form > * {
-  margin: 1em;
+input:focus {
+  border-color: #c00000;
+  outline: none;
 }
 
-form div {
+input, button{
+  margin-top: 2em;
+}
+
+form {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
