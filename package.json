@@ -1,6 +1,6 @@
 {
   "name": "@moreillon/vue_authentication_wall",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "main": "dist/AuthenticationWall.umd.js",
   "module": "dist/AuthenticationWall.esm.js",
   "unpkg": "dist/AuthenticationWall.min.js",
